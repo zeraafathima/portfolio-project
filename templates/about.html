@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Adding Bootstrap & Animation Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<style>
+/* General Styling */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 5%;
+    background-color: #1a1a1a;
+    color: #fff;
+    gap: 2rem;
+    text-align: center;
+}
+
+.about .content {
+    flex: 1;
+    max-width: 700px;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+/* Quote */
+.quote {
+    font-style: italic;
+    color: #ffcc00;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* Technologies Section */
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 1rem;
+}
+
+.tech-badge {
+    background: linear-gradient(45deg, #333, #555);
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-badge:hover {
+    transform: scale(1.1);
+}
+
+/* Skills Progress Bars */
+.skills {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.skill {
+    margin-bottom: 1rem;
+}
+
+.skill-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-fill {
+    height: 100%;
+    width: 0;
+    background: #ffcc00;
+    transition: width 2s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 4rem 8%;
+    }
+
+    .technologies {
+        justify-content: center;
+    }
+
+    .skill-bar {
+        width: 90%;
+        margin: auto;
+    }
+}
+</style>
+
+<!-- About Me Section -->
+<section class="about animate__animated animate__fadeIn">
+    <div class="content">
+        <h2>About Me</h2>
+        <p>👋 Hi, I'm <strong>Fathima Dilawar</strong>, a <strong>Data Scientist & Web Developer</strong> passionate about technology, problem-solving, and innovation.  
+        My expertise lies in <strong> Machine Learning, Artificial Intelligence, and Full-Stack Web Development</strong>.</p>
+
+        <p>I believe in <strong>continuous learning</strong> and love experimenting with new technologies. Whether it's developing <strong>intelligent AI models</strong> or designing smooth, user-friendly web applications,  
+        I always strive to create impactful solutions.</p>
+
+        <blockquote class="quote">
+            "The best way to predict the future is to create it." – Peter Drucker
+        </blockquote> 
+
+        <h3>What I Do</h3>
+        <ul style="list-style: none; padding: 0; text-align: left; color: #ccc;">
+            <li>🚀 <strong>AI & Machine Learning</strong> – Developing predictive models, NLP-based applications, and AI-driven solutions.</li>
+            <li>🌐 <strong>Web Development</strong> – Building responsive, dynamic websites using Django, JavaScript, and modern frameworks.</li>
+            <li>📊 <strong>Data Analysis & Visualization</strong> – Extracting insights from data to drive decision-making.</li>
+            <li>🛠️ <strong>Backend Development</strong> – Working on databases, APIs, and server-side logic for scalable applications.</li>
+        </ul>
+
+        <h3>Skills & Technologies</h3>
+        <div class="technologies animate__animated animate__fadeInUp">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Django</span>
+            <span class="tech-badge">TensorFlow</span>
+            <span class="tech-badge">Scikit-Learn</span>
+            <span class="tech-badge">NLP</span>
+            <span class="tech-badge">Deep Learning</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">Git</span>
+            <span class="tech-badge">REST APIs</span>
+            
+        </div>
+
+        <!-- Skills Progress Bars -->
+        <div class="skills">
+            <div class="skill">
+                <span class="skill-title">Machine Learning</span>
+                <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill">
+                <span class="skill-title">Web Development</span>
+                <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill">
+                <span class="skill-title">Deep Learning</span>
+                <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+            </div>
+            <div class="skill">
+                <span class="skill-title">Database Management</span>
+                <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+            </div>
+        </div>
+
+        <h3>My Vision</h3>
+        <p>I aim to create <strong>intelligent systems</strong> that enhance</strong> human experiences</strong>. Whether it's <strong>automating processes</strong>,<strong>improving accessibility</strong>,or <strong>making AI more ethical</strong>,  
+        my goal is to bridge the gap between <strong>humans and technology</strong>.</p>
+
+        <p>🌱 <strong>Always Learning</strong> – I constantly explore <strong>new frameworks, libraries, and tools</strong> to stay ahead in this ever-evolving tech world.</p>
+
+        <h3>📩 Let’s Connect!</h3>
+        <p>If you’re interested in <strong>working together</strong>, discussing <strong>tech</strong>, or just <strong>networking</strong>, feel free to <strong>reach out</strong>! 😊</p><br>
+       <!-- Contact Me Button -->
+<a href="{% url 'contact' %}" 
+class="btn btn-outline-warning btn-lg mt-3"
+style="border: 2px solid #ffcc00; color: #ffcc00; font-weight: bold; padding: 14px 25px; border-radius: 8px; transition: all 0.3s; text-decoration: none;">
+ Get in Touch
+</a>
+<style>
+    .btn-outline-warning:hover {
+        background-color: #ffcc00 !important;
+        color: #000 !important;
+        transform: scale(1.05);
+    }
+    </style>
+
+    </div>
+</section>
+
+<!-- JavaScript for Progress Animation & Smooth Effects -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Skill Bar Animation
+    const skillFills = document.querySelectorAll(".skill-fill");
+    skillFills.forEach(skill => {
+        let width = skill.getAttribute("data-width");
+        setTimeout(() => { skill.style.width = width; }, 500);
+    });
+
+    // Smooth Scroll for better appearance
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+});
+</script>
+
+{% endblock %}

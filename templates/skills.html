@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---- SKILLS SECTION ---- */
+.skills-section {
+    padding: 6rem 5%;
+    background-color: #1a1a1a;
+    text-align: center;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    margin-bottom: 2rem;
+}
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Skills Style (Both Technical & Soft) */
+.technical-skills, .soft-skills {
+    flex: 1;
+    max-width: 500px;
+    text-align: center;
+}
+
+.technical-skills h3, .soft-skills h3 {
+    font-size: 1.8rem;
+    color: #ffcc00;
+    margin-bottom: 1.5rem;
+}
+
+/* Skills Badges */
+.skills-badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.skill-badge {
+    background: #333;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 1rem;
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-badge:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+
+<!-- SKILLS SECTION -->
+<section class="skills-section">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+        
+        <!-- Technical Skills -->
+        <div class="technical-skills">
+            <h3>Technical Skills</h3>
+            <div class="skills-badge-container">
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">Django</span>
+                <span class="skill-badge">Flask</span>
+                <span class="skill-badge">JavaScript</span>
+                <span class="skill-badge">React.js</span>
+                <span class="skill-badge">Node.js</span>
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS</span>
+                <span class="skill-badge">Bootstrap</span>
+                <span class="skill-badge">R Programming Language</span>
+                <span class="skill-badge">Machine Learning</span>
+                <span class="skill-badge">Deep Learning</span>
+                <span class="skill-badge">NLP</span>
+                <span class="skill-badge">Computer Vision</span>
+                <span class="skill-badge">Data Analysis,,</span>
+                <span class="skill-badge">TensorFlow</span>
+                <span class="skill-badge">PyTorch</span>
+                <span class="skill-badge">Keras</span>
+                <span class="skill-badge">NumPy</span>
+                <span class="skill-badge">Pandas</span>
+                <span class="skill-badge">Matplotlib</span>
+                <span class="skill-badge">Seaborn</span>
+                <span class="skill-badge">Scikit-Learn</span>
+                <span class="skill-badge">Rest api</span>
+                <span class="skill-badge">SQL</span>
+                <span class="skill-badge">MySQL</span>
+                <span class="skill-badge">PostgreSQL</span>
+                <span class="skill-badge">MongoDB</span>
+                <span class="skill-badge">Artificial Intelligence</span>
+                <span class="skill-badge">DSA in Python</span>
+                <span class="skill-badge">AWS</span>
+                <span class="skill-badge">Git & GitHub</span>
+            </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="soft-skills">
+            <h3>Soft Skills</h3>
+            <div class="skills-badge-container">
+                <span class="skill-badge">Problem Solving</span>
+                <span class="skill-badge">Critical Thinking</span>
+                <span class="skill-badge">Team Collaboration</span>
+                <span class="skill-badge">Communication</span>
+                <span class="skill-badge">Creativity</span>
+                <span class="skill-badge">Adaptability</span>
+                <span class="skill-badge">Time Management</span>
+                <span class="skill-badge">Leadership</span>
+                <span class="skill-badge">Attention to Detail</span>
+                <span class="skill-badge">Decision Making</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

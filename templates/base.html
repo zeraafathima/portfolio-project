@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #f4f4f4;
+    background-color: #000; /* Black background for monochrome */
+    line-height: 1.6;
+}
+
+/* Navbar */
+header {
+    background: linear-gradient(90deg, #000, #222); /* Black to dark gray gradient */
+    color: #f4f4f4;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    margin-left: 20px;
+}
+
+.logo:hover {
+    color: #b3b3b3; /* Light gray hover effect */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    display: inline-block;
+    position: relative;
+}
+
+.nav-links a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-links a:hover {
+    color: #b3b3b3;
+    transform: translateY(-5px);
+}
+
+.nav-links a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #b3b3b3;
+    transition: width 0.3s ease;
+    margin-top: 5px;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(90deg, #222, #000);
+    color: #f4f4f4;
+    padding: 3rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Footer Sections */
+.footer-section {
+    flex: 1 1 250px;
+    text-align: left;
+    max-width: 300px;
+}
+
+.footer-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #f4f4f4;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h4::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 2px;
+    background: #ffa116;
+    margin-top: 5px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ffa116;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffa116;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Heart Animation */
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+
+
+
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+            <div class="logo"><b>MY PORTFOLIO</b></div>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
+                    <li><a href="{% url 'about' %}"><b>ABOUT</b></a></li>
+                    <li><a href="{% url 'projects' %}"><b>PROJECTS</b></a></li>
+                    <li><a href="{% url 'skills' %}"><b>SKILLS</b></a></li>
+                    <li><a href="{% url 'resume' %}"><b>RESUME</b></a></li>
+                    <li><a href="{% url 'services' %}"><b>SERVICES</b></a></li>
+                    <li><a href="{% url 'contact' %}"><b>CONTACT</b></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container footer-container">
+            <!-- Brand Information -->
+            <div class="footer-section">
+                <h4>My Portfolio</h4>
+                <p>Crafting digital experiences with passion and precision.</p>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4><br>
+                <a href="{% url 'home' %}">Home</a><br>
+                <a href="{% url 'about' %}">About</a><br>
+                <a href="{% url 'skills' %}">Skills</a><br>
+                <a href="{% url 'resume' %}">Resume</a><br>
+                <a href="{% url 'services' %}">Services</a><br>
+                <a href="{% url 'projects' %}">Projects</a><br>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+            <!-- Contact Information -->
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: fathimadilawar09@gmail.com</p>
+                <p>Phone: +91 8089236071</p>
+                <p>Whatsapp: 8281209879</p>
+            </div>
+            <!-- Social Media Icons -->
+            <div class="footer-section">
+                <h4>Follow Me</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/zeraa.fathima" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a><br>
+                   
+                    <a href="https://linkedin.com/in/fathimadilawar" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a><br>
+                    <a href="https://medium.com/@zeraafathima" target="_blank">
+                        <i class="fab fa-medium fa-2x"></i>
+                    </a><br>
+                    
+                    <a href="https://github.com/zeraafathima" target="_blank" class="social-icon github">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a><br>
+                    <a href="https://twitter.com/zeraafathima" target="_blank" class="social-icon twitter">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a><br>
+                    <a href="https://leetcode.com/zeraafathima" target="_blank" class="social-icon leetcode">
+                        <img src="{% static 'images/images.jpeg' %}" height="30px"width="90px" alt="LeetCode">
+                    </a>
+                </div>
+            </div>
+        </div><br>
+        
+       
+            <p>Made with <span class="heart">❤️</span> by <strong>Fathima Dilawar </strong> | &copy; 2025 My Portfolio. All rights reserved.</p>
+        
+        
+    </footer>
+    

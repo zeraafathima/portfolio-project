@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - My Portfolio{% endblock %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #111; /* Dark theme */
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10rem 5%;
+    background-image: url('{% static "images/bg8.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add dark overlay for better text contrast */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.hero .content {
+    max-width: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    color: #bbb;
+    margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.hero .role {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Smooth text animation */
+#changing-text {
+    display: inline-block;
+    font-weight: 600;
+    color: #ffcc00; /* Highlighted color */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Buttons */
+.hero .buttons {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.hero .btn {
+    text-decoration: none;
+    background: linear-gradient(45deg, #222, #555);
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero .btn:hover {
+    background: linear-gradient(45deg, #444, #777);
+    transform: scale(1.05);
+}
+
+/* Play button */
+.hero .play-video {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero .play-video:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Image */
+.hero .image-container img {
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero .image-container img:hover {
+    transform: scale(1.05);
+}
+
+.resume-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background:transparent;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 2px solid #ffcc00;
+    transition: 0.3s;
+}
+
+.resume-btn:hover {
+    background: transparent;
+    color:white;
+}
+
+</style>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="content">
+        <h2>I'm</h2>
+        <h1>Fathima Dilawar</h1>
+        <p class="role"><span id="changing-text">Data Scientist</span></p>
+        <div class="buttons">
+            <a href="{% static 'data/Fathima_resume.pdf' %}" download class="resume-btn">
+                Download Resume
+            </a>
+            <a href="#" class="btn play-video">
+                <i class="fas fa-play"></i> Play Video
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for Role Switching -->
+<script>
+    const roles = ["Data Scientist", "Web Developer"];
+    let index = 0;
+    const textElement = document.getElementById("changing-text");
+
+    function changeText() {
+        textElement.style.opacity = 0;
+        setTimeout(() => {
+            textElement.textContent = roles[index];
+            textElement.style.opacity = 1;
+            index = (index + 1) % roles.length;
+        }, 500);
+    }
+
+    setInterval(changeText, 2000);
+</script>
+
+{% endblock %}

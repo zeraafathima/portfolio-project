@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+/* Resume Section */
+.resume {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.resume h2 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.resume .download-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.resume .download-btn a {
+    text-decoration: none;
+    background: #ffcc00;
+    color: #1a1a1a;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.resume .download-btn a:hover {
+    background: #e6b800;
+}
+
+/* Resume Content */
+.resume-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.resume-left, .resume-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 2rem;
+}
+
+.section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffcc00;
+}
+
+.section ul {
+    list-style: none;
+}
+
+.section ul li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+</style>
+
+<section class="resume">
+    <h2>My Resume</h2>
+
+    <!-- Download Button -->
+    <div class="download-btn">
+        <a href=" {% static 'data/Fathima_resume.pdf' %}" download>Download Resume</a>
+    </div>
+
+    <div class="resume-content">
+        <!-- Left Section -->
+        <div class="resume-left">
+            <div class="section">
+                <h3>Education</h3>
+                <ul>
+                    <li><strong>DataScience and AI</strong> - KITES Softwares Pvt.Ltd.</li>
+                    <li><strong>Bachelor of Computer Applications (BCA)</strong> - MG University</li>
+                    <li><strong>CyberSecurity-Ethical Hacking</strong> - TechByHeart</li>
+         
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Python, JavaScript, SQL</li>
+                    <li>Web Development (Django, HTML, CSS, JS)</li>
+                    <li>Machine Learning & NLP</li>
+                    <li>Database: MySQL, Sqlite</li>
+                    <li>Version Control: Git & GitHub</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Problem-Solving & Critical Thinking</li>
+                    <li>Communication & Teamwork</li>
+                    <li>Time Management & Adaptability</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="resume-right">
+            <div class="section">
+                <h3>Projects</h3>
+                <ul>
+                    <li>Cyberbullying Detection (Django + NLP)</li>
+                    <li>Portfolio Website (Django + JavaScript)</li>
+                    <li>Customizable Voice Chatbot</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>Data Science & AI Certification</li>
+                    <li>Ethical Hacking Certification</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
