@@ -28,7 +28,8 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = [
-   "portfolio-project-5-raes.onrender.com"
+   "portfolio-project-5-raes.onrender.com",
+   '127.0.0.1', 'localhost','127.0.0.1:8000',
 ]
 
 

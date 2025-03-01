@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,6 +142,110 @@
                 transform: translateY(0);
             }
         }
+        /* Footer Styling */
+footer {
+    background: linear-gradient(90deg, #222, #000);
+    color: #f4f4f4;
+    padding: 3rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: start;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Footer Sections */
+.footer-section {
+    flex: 1 1 250px;
+    text-align: left;
+    max-width: 300px;
+}
+
+.footer-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #f4f4f4;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h4::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 2px;
+    background: #ffa116;
+    margin-top: 5px;
+}
+
+.footer-section p,
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ffa116;
+}
+/* Heart Animation */
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffa116;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+}
+
 
         /* Main Content */
         main {
@@ -236,9 +341,18 @@
     
     <script>
         function toggleMenu() {
-            const menu = document.querySelector('.nav-links');
-            menu.classList.toggle('active'); // Toggle the menu visibility
-        }
+    const menu = document.querySelector('.nav-links');
+    const toggleIcon = document.querySelector('.menu-toggle i');
+    menu.classList.toggle('active');
+    if (menu.classList.contains('active')) {
+        toggleIcon.classList.remove('fa-bars');
+        toggleIcon.classList.add('fa-times');
+    } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+    }
+}
     </script>
+    
 </body>
 </html>
