@@ -28,7 +28,7 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = [
-    "portfolio-project-5.onrender.com"
+   "portfolio-project-5-raes.onrender.com"
 ]
 
 
