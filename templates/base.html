@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FontAwesome CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <title>{% block title %}Portfolio{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
 <style>
-/* General Styles */
+    /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     color: #f4f4f4;
@@ -32,7 +31,6 @@ nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
 }
 
 .logo {
@@ -41,13 +39,13 @@ nav .container {
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: color 0.3s ease;
+    margin-left: 20px;
 }
 
 .logo:hover {
-    color: #b3b3b3;
+    color: #b3b3b3; /* Light gray hover effect */
 }
 
-/* Navbar Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -56,6 +54,7 @@ nav .container {
 
 .nav-links li {
     display: inline-block;
+    position: relative;
 }
 
 .nav-links a {
@@ -66,6 +65,7 @@ nav .container {
     letter-spacing: 1px;
     transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
+    margin-right: 20px;
 }
 
 .nav-links a:hover {
@@ -86,23 +86,23 @@ nav .container {
 .nav-links a:hover::after {
     width: 100%;
 }
-
-/* Toggle Button (Hamburger Menu) */
+/* Menu toggle icon */
 .menu-toggle {
     display: none;
     font-size: 2rem;
     cursor: pointer;
     color: white;
+    margin-right: 20px;
 }
 
-/* Responsive Navbar */
+/* For mobile screens */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: block; /* Show menu icon */
     }
 
     .nav-links {
-        display: none; /* Initially hidden */
+        display: none; /* Hide menu initially */
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -113,14 +113,15 @@ nav .container {
         padding: 10px 0;
     }
 
-    .nav-links.active {
-        display: flex; /* Show menu when toggled */
-    }
-
     .nav-links li {
         margin: 10px 0;
     }
+
+    .nav-links.active {
+        display: flex; /* Show menu when active */
+    }
 }
+
 
 /* Footer Styling */
 footer {
@@ -202,15 +203,41 @@ footer {
     font-size: 0.9rem;
 }
 
-</style>
+/* Heart Animation */
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
 
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+
+
+
+</style>
 <body>
     <header>
         <nav>
             <div class="container">
                 <div class="logo"><b>MY PORTFOLIO</b></div>
                 <div class="menu-toggle" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
                 </div>
                 <ul class="nav-links">
                     <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
@@ -224,22 +251,22 @@ footer {
             </div>
         </nav>
     </header>
-
     <main>
         <div class="container">
             {% block content %}
             {% endblock %}
         </div>
     </main>
-
     <footer>
         <div class="container footer-container">
+            <!-- Brand Information -->
             <div class="footer-section">
                 <h4>My Portfolio</h4>
                 <p>Crafting digital experiences with passion and precision.</p>
             </div>
+            <!-- Quick Links -->
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4>Quick Links</h4><br>
                 <a href="{% url 'home' %}">Home</a><br>
                 <a href="{% url 'about' %}">About</a><br>
                 <a href="{% url 'skills' %}">Skills</a><br>
@@ -248,20 +275,51 @@ footer {
                 <a href="{% url 'projects' %}">Projects</a><br>
                 <a href="{% url 'contact' %}">Contact</a>
             </div>
+            <!-- Contact Information -->
             <div class="footer-section">
                 <h4>Contact</h4>
                 <p>Email: fathimadilawar09@gmail.com</p>
                 <p>Phone: +91 8089236071</p>
+                <p>Whatsapp: 8281209879</p>
             </div>
-        </div>
-        <p>Made with <span class="heart">❤️</span> by <strong>Fathima Dilawar</strong> | &copy; 2025 My Portfolio. All rights reserved.</p>
+            <!-- Social Media Icons -->
+            <div class="footer-section">
+                <h4>Follow Me</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/zeraa.fathima" target="_blank" class="social-icon instagram">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a><br>
+                   
+                    <a href="https://linkedin.com/in/fathimadilawar" target="_blank" class="social-icon linkedin">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a><br>
+                    <a href="https://medium.com/@zeraafathima" target="_blank">
+                        <i class="fab fa-medium fa-2x"></i>
+                    </a><br>
+                    
+                    <a href="https://github.com/zeraafathima" target="_blank" class="social-icon github">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a><br>
+                    <a href="https://twitter.com/zeraafathima" target="_blank" class="social-icon twitter">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a><br>
+                    <a href="https://leetcode.com/zeraafathima" target="_blank" class="social-icon leetcode">
+                        <img src="{% static 'images/images.jpeg' %}" height="30px"width="90px" alt="LeetCode">
+                    </a>
+                </div>
+            </div>
+        </div><br>
+        
+       
+            <p>Made with <span class="heart">❤️</span> by <strong>Fathima Dilawar </strong> | &copy; 2025 My Portfolio. All rights reserved.</p>
+        
+        
     </footer>
-
+    
     <script>
         function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('active');
+            const menu = document.querySelector('.nav-links');
+            menu.classList.toggle('active'); // Toggle the menu visibility
         }
     </script>
-
-</body>
-</html>
+    
